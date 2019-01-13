@@ -1,8 +1,10 @@
 # Basic HelloWorld React Rails
 
-Web application that uses rails + react + redux store + webpack. It's a default react with rails hello world example that I am building. I will add any new additions as need be. Only have built this so that I could reference it later on. When building another web application.
+Web application that uses rails + react + redux store + webpack. It's a default react with rails hello world example that I am building. I will add any new additions as need be. I only built this so that I could reference it later on. When building another web application.
 
 ## Installation/Usage
+Be sure to have yarn and nodejs installed before usage
+
 ```bash
 cd basic-react-rails
 bundle && yarn
