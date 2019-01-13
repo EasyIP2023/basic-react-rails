@@ -1,6 +1,6 @@
 {
-  "name": "Basic React Rails",
-  "description": "Web app that allows users to buy and sell electricity to each other",
+  "name": "basic-react-rails",
+  "description": "Basic React Rails HelloWorld Example",
   "main": "server.js",
   "scripts": {
     "postinstall": "cd ./client && yarn install",
