@@ -34,3 +34,7 @@ run rails generate react_on_rails:install && bundle && yarn
 ```
 
 **Important npm packages can be found in client/package.json**
+
+## How Redux Works
+
+![Redux IMG](https://1npo9l3lml0zvr6w62acc3t1-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/redux-cycle.jpg)
