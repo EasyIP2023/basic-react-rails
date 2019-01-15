@@ -1,6 +1,6 @@
-# Basic HelloWorld React Rails
+# React Redux Rails Webpack Example
 
-Web application that uses rails + react + redux store + webpack. It's a default react with rails hello world example that I am building. I will add any new additions as need be. I only built this so that I could reference it later on. When building another web application.
+Web application that uses rails + react + redux store + react-bootstrap + webpack. It's a default react with rails web application example. I will add any new additions as need be. I only built this so that I could reference it later on when building other related web applications.
 
 ## Installation/Usage
 Be sure to have yarn and nodejs installed before usage
@@ -19,7 +19,7 @@ Commands came form [react_on_rails gitbook](https://shakacode.gitbooks.io/react-
 ```bash
 rails new my_app --webpack=react
 # be sure to git commit changes
-rails generate react_on_rails:install
+rails generate react_on_rails:install --redux
 bundle && yarn
 ```
 
@@ -27,13 +27,28 @@ or
 
 ```bash
 bundle exec rails webpacker:install
-yarn add "rails/webpacker" # because the installer has a bug that puts in an invalid version in your package.json.
+yarn add "rails/webpacker"
+# because the installer has a bug that puts in an invalid version in your package.json.
 bundle exec rails webpacker:install:react
 yarn add --dev webpack-dev-server
-run rails generate react_on_rails:install && bundle && yarn
+rails generate react_on_rails:install --redux
+bundle && yarn
 ```
 
 **Important npm packages can be found in client/package.json**
+
+To add packages just use
+
+For development
+```bash
+cd client
+yarn add <package name>@<version number> --dev
+```
+For dependences
+```bash
+cd client
+yarn add <package name>@<version number> --dep
+```
 
 ## How Redux Works
 

@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
       Redirected back to '/server_side_log_throw_raise_invoker'.
       See server logs for output.
     MSG
-    redirect_to server_side_log_throw_raise_invoker_path, flash: { error: msg }
+    flash[:error] = msg
+    redirect_back(fallback_location: root_path)
   end
 end

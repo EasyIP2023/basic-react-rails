@@ -1,6 +1,6 @@
 {
   "name": "basic-react-rails",
-  "description": "Basic React Rails HelloWorld Example",
+  "description": "Basic React Redux Rails Webpack Example",
   "main": "server.js",
   "scripts": {
     "postinstall": "cd ./client && yarn install",

@@ -20,6 +20,15 @@ module.exports = {
   context: resolve(__dirname),
   entry: {
     // This will contain the app entry points defined by
+
+    // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
+    'vendor-bundle': [
+      '@babel/polyfill',
+      'es5-shim/es5-shim',
+      'es5-shim/es5-sham',
+      'jquery',
+      'turbolinks',
+    ],
     // webpack.client.rails.hot.config and webpack.client.rails.build.config
     'app-bundle': [
       './app/startup/clientRegistration',
@@ -70,6 +79,32 @@ module.exports = {
             options: 'jQuery',
           },
         ],
+      },
+      {
+        test: require.resolve('turbolinks'),
+        use: {
+          loader: 'imports-loader?this=>window'
+        },
+      },
+      // Bootstrap 3
+      {
+        test: /bootstrap-sass\/assets\/javascripts\//,
+        use: {
+          loader: 'imports-loader',
+          options: {
+            jQuery: 'jquery',
+          },
+        },
+      },
+      // Bootstrap 4
+      {
+        test: /bootstrap\/dist\/js\/umd\//,
+        use: {
+          loader: 'imports-loader',
+          options: {
+            jQuery: 'jquery',
+          },
+        },
       },
     ],
   },

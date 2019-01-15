@@ -2,12 +2,17 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Sunspot
+    %title Basic React Rails
     = csrf_meta_tags
     = csp_meta_tag
+    = stylesheet_pack_tag 'vendor-bundle', media: 'all', 'data-turbolinks-track': true
     = stylesheet_pack_tag 'app-bundle', media: 'all', 'data-turbolinks-track': true
 
     = javascript_pack_tag 'vendor-bundle', 'data-turbolinks-track': true, defer: true
     = javascript_pack_tag 'app-bundle', 'data-turbolinks-track': true, defer: true
   %body
-    = yield
+    = render 'layouts/navigations'
+    .container
+      = yield
+
+    = redux_store_hydration_data

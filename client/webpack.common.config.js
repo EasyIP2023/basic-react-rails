@@ -2,7 +2,7 @@ const urlFileSizeCutover = 1000; // below 10k, inline, small 1K is to test file 
 
 const assetLoaderRules = [
   {
-    test: /\.(jpe?g|png|gif|ico|woff)$/,
+    test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
     use: {
       loader: 'url-loader',
       options: {
@@ -14,7 +14,7 @@ const assetLoaderRules = [
     },
   },
   {
-    test: /\.(ttf|eot|svg)$/,
+    test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
     use: {
       loader: 'file-loader',
       options: {

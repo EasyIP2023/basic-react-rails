@@ -1,0 +1,2 @@
+
+export const NAVBAR_LINK_UPDATE = 'NAVBAR_LINK_UPDATE';

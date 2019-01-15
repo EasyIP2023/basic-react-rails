@@ -18,7 +18,8 @@ module.exports = {
   // the project dir
   context: __dirname,
   entry: [
-    './app/startup/serverRegistration',
+    '@babel/polyfill',
+    './app/startup/serverRegistration'
   ],
   output: {
     // Important to NOT use a hash if the server webpack config runs separately from the client one.
@@ -42,6 +43,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(nodeEnv),
+        TRACE_TURBOLINKS: devBuild,
       },
     }),
   ],
