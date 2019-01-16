@@ -1,6 +1,6 @@
 # React Redux Rails Webpack Example
 
-Web application that uses rails + react + redux store + react-bootstrap + webpack. It's a default react with rails web application example. I will add any new additions as need be. I only built this so that I could reference it later on when building other related web applications.
+Web application that uses rails + react + redux store + bootstrap v4 + webpack. It's a default react with rails web application example. I will add any new additions as need be. I only built this so that I could reference it later on when building other related web applications.
 
 ## Installation/Usage
 Be sure to have yarn and nodejs installed before usage

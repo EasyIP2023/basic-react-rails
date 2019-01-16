@@ -1,12 +1,11 @@
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import { Button, ButtonToolbar } from 'react-bootstrap';
 
 const Home= ({ name, updateName }) => (
   <div>
     <h3>
-      Hello, {name}! Vince
+      Hello, {name}!
     </h3>
     <hr />
     <form >
@@ -21,16 +20,14 @@ const Home= ({ name, updateName }) => (
       />
     </form>
     <hr />
-    <h1>Testin HMR </h1>
-    <ButtonToolbar>
-      <Button>Default</Button>
-      <Button bsStyle="primary" bsSize="large">Large primary</Button>
-      <Button bsStyle="success">Success</Button>
-      <Button bsStyle="info">Info</Button>
-      <Button bsStyle="warning">Warning</Button>
-      <Button bsStyle="danger">Danger</Button>
-      <Button bsStyle="link">Link</Button>
-    </ButtonToolbar>
+    <div className="row">
+      <div className="col-lg-12">
+        <button className='btn btn-primary btn-lg'>Primary</button>
+        <button className='btn btn-danger btn-lg'>Danger</button>
+        <button className='btn btn-warning btn-lg'>Warning</button>
+        <button className='btn btn-info btn-lg'>Info</button>
+      </div>
+    </div>
   </div>
 );
 

@@ -8,55 +8,26 @@ import * as paths from '../constants/paths';
 const NavBar = (props) => {
   const { pathname } = props;
 
-  /* eslint-disable new-cap */
   return (
-    <nav className="navbar navbar-default">
-      <div className="container">
-        <div className="navbar-header">
-          <button
-            type="button"
-            className="navbar-toggle"
-            data-toggle="collapse"
-            data-target="#bs-example-navbar-collapse-1"
-          >
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-            <span className="icon-bar" />
-          </button>
-          <a className="navbar-brand" href="http://www.shakacode.com">ShakaCode</a>
-        </div>
-        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul className="nav navbar-nav">
-            <li className={classNames(
-            { active: (pathname === paths.ROUTER_PATH || pathname === paths.REACT_ROUTER_PATH) },
-          )}>
-              <a href={paths.ROUTER_PATH}>React Router Demo</a>
-            </li>
-            <li className={classNames({ active: (pathname === paths.NO_ROUTER_PATH) })}>
-              <a href={paths.NO_ROUTER_PATH}>React Demo</a>
-            </li>
-            <li className={classNames({ active: (pathname === paths.SIMPLE_REACT_PATH) })}>
-              <a href={paths.SIMPLE_REACT_PATH}>Simple React</a>
-            </li>
-            <li className={classNames({ active: (pathname === paths.RAILS_PATH) })}>
-              <a href={paths.RAILS_PATH}>Classic Rails</a>
-            </li>
-            <li>
-              <a
-                href={
-                  'https://github.com/' +
-                  'shakacode/react-webpack-rails-tutorial'
-                }
-              >
-                Source
-              </a>
-            </li>
-            <li>
-              <a href="https://forum.shakacode.com/c/reactjs">Forum</a>
-            </li>
-          </ul>
-        </div>
+    <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+      <a className="navbar-brand" href="#">Navbar</a>
+
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
+      <div className="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <a className="nav-link" href="#">Link</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Link</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Link</a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
