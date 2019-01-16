@@ -26,7 +26,7 @@ module.exports = merge.strategy({
   entry: {
     'vendor-bundle': [
       'jquery-ujs',
-      'bootstrap-loader'
+      'bootstrap-loader',
     ],
     'app-bundle': [
       'react-hot-loader/patch',

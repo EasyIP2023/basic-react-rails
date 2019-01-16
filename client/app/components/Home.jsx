@@ -6,7 +6,7 @@ import { Button, ButtonToolbar } from 'react-bootstrap';
 const Home= ({ name, updateName }) => (
   <div>
     <h3>
-      Hello, {name}!
+      Hello, {name}! Vince
     </h3>
     <hr />
     <form >
@@ -20,9 +20,11 @@ const Home= ({ name, updateName }) => (
         onChange={(e) => updateName(e.target.value)}
       />
     </form>
+    <hr />
+    <h1>Testin HMR </h1>
     <ButtonToolbar>
       <Button>Default</Button>
-      <Button bsStyle="primary">Primary</Button>
+      <Button bsStyle="primary" bsSize="large">Large primary</Button>
       <Button bsStyle="success">Success</Button>
       <Button bsStyle="info">Info</Button>
       <Button bsStyle="warning">Warning</Button>

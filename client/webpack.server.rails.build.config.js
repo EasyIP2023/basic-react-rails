@@ -19,7 +19,7 @@ module.exports = {
   context: __dirname,
   entry: [
     '@babel/polyfill',
-    './app/startup/serverRegistration'
+    './app/startup/serverRegistration',
   ],
   output: {
     // Important to NOT use a hash if the server webpack config runs separately from the client one.

@@ -1,60 +1,69 @@
-import React from "react";
+import classNames from 'classnames';
+import _ from 'lodash';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'react-bootstrap';
+import * as paths from '../constants/paths';
 
-export default class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
+const NavBar = (props) => {
+  const { pathname } = props;
 
-    this.toggleNavbar = this.toggleNavbar.bind(this);
-    this.state = {
-      collapsed: true
-    };
-  }
-
-  toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed
-    });
-  }
-  render() {
-    return (
-      <div>
-        <Navbar inverse collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#brand">React-Bootstrap</a>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav>
-              <NavItem eventKey={1} href="#">
-                Link
-              </NavItem>
-              <NavItem eventKey={2} href="#">
-                Link
-              </NavItem>
-              <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>Action</MenuItem>
-                <MenuItem eventKey={3.2}>Another action</MenuItem>
-                <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey={3.3}>Separated link</MenuItem>
-              </NavDropdown>
-            </Nav>
-            <Nav pullRight>
-              <NavItem eventKey={1} href="#">
-                Link Right
-              </NavItem>
-              <NavItem eventKey={2} href="#">
-                Link Right
-              </NavItem>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+  /* eslint-disable new-cap */
+  return (
+    <nav className="navbar navbar-default">
+      <div className="container">
+        <div className="navbar-header">
+          <button
+            type="button"
+            className="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+          >
+            <span className="sr-only">Toggle navigation</span>
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+            <span className="icon-bar" />
+          </button>
+          <a className="navbar-brand" href="http://www.shakacode.com">ShakaCode</a>
+        </div>
+        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul className="nav navbar-nav">
+            <li className={classNames(
+            { active: (pathname === paths.ROUTER_PATH || pathname === paths.REACT_ROUTER_PATH) },
+          )}>
+              <a href={paths.ROUTER_PATH}>React Router Demo</a>
+            </li>
+            <li className={classNames({ active: (pathname === paths.NO_ROUTER_PATH) })}>
+              <a href={paths.NO_ROUTER_PATH}>React Demo</a>
+            </li>
+            <li className={classNames({ active: (pathname === paths.SIMPLE_REACT_PATH) })}>
+              <a href={paths.SIMPLE_REACT_PATH}>Simple React</a>
+            </li>
+            <li className={classNames({ active: (pathname === paths.RAILS_PATH) })}>
+              <a href={paths.RAILS_PATH}>Classic Rails</a>
+            </li>
+            <li>
+              <a
+                href={
+                  'https://github.com/' +
+                  'shakacode/react-webpack-rails-tutorial'
+                }
+              >
+                Source
+              </a>
+            </li>
+            <li>
+              <a href="https://forum.shakacode.com/c/reactjs">Forum</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    );
-  }
-}
+    </nav>
+  );
+};
+
+NavBar.propTypes = {
+  pathname: PropTypes.string.isRequired,
+};
+
+export default NavBar;

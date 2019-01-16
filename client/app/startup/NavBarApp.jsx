@@ -1,16 +1,18 @@
 import React from 'react';
+import ReactOnRails from 'react-on-rails';
 import { Provider } from 'react-redux';
 
-import configureStore from '../store/navBarStore';
+import NavBar from '../components/NavBar';
 import NavBarContainer from '../containers/NavBarContainer';
+import * as paths from '../constants/paths';
 
-// See documentation for https://github.com/reactjs/react-redux.
-// This is how you get props from the Rails view into the redux store.
-// This code here binds your smart component to the redux store.
-const NavBarApp = (props) => (
-  <Provider store={configureStore(props)}>
-    <NavBarContainer />
-  </Provider>
-);
+const NavBarApp = (_props, railsContext) => {
+  // This is where we get the existing store.
+  const { pathname } = railsContext;
+
+  return (
+    <NavBar {...{ pathname }} />
+  );
+};
 
 export default NavBarApp;

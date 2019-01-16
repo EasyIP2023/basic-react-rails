@@ -1,13 +1,28 @@
-// Simple example of a React "smart" component
-
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import NavBar from '../components/NavBar';
-import * as actions from '../actions/navBarActionCreators';
 
-// Which part of the Redux global state does our component want to receive as props?
-const mapStateToProps = (state) => ({ link: state.link });
+import BaseComponent from '../libs/components/BaseComponent';
+
+import NavBar from '../components/NavBar';
+
+function stateToProps(state) {
+  return { pathname: state.railsContext.pathname };
+}
+
+class NavBarContainer extends BaseComponent {
+  static propTypes = {
+    pathname: PropTypes.string.isRequired,
+  };
+
+  render() {
+    const { pathname } = this.props;
+
+    return (
+      <NavBar {...{ pathname }} />
+    );
+  }
+}
 
 // Don't forget to actually use connect!
-// Note that we don't export HelloWorld, but the redux "connected" version of it.
-// See https://github.com/reactjs/react-redux/blob/master/docs/api.md#examples
-export default connect(mapStateToProps, actions)(NavBar);
+export default connect(stateToProps)(NavBarContainer);

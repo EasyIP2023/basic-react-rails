@@ -30,7 +30,7 @@ module.exports = merge(config, {
     'vendor-bundle': [
       'jquery-ujs',
       // Configures extractStyles to be true if NODE_ENV is production
-      'bootstrap-loader/extractStyles'
+      'bootstrap-loader/extractStyles',
     ],
   },
 
