@@ -9,13 +9,17 @@ const { assetLoaderRules } = require('./webpack.common.config');
 
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const configPath = resolve('..', 'config');
-const { output } = webpackConfigLoader(configPath);
+const { output, settings } = webpackConfigLoader(configPath);
+const isHMR = settings.dev_server && settings.dev_server.hmr;
 
 const devBuild = process.env.NODE_ENV !== 'production';
+const nodeEnv = devBuild ? 'development' : 'production';
 
 module.exports = {
-
+  mode: nodeEnv,
   // the project dir
   context: resolve(__dirname),
   entry: {
@@ -34,13 +38,13 @@ module.exports = {
       './app/startup/clientRegistration',
     ],
   },
+
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
       images: join(process.cwd(), 'app', 'assets', 'images'),
     },
   },
-
 
   plugins: [
     new webpack.EnvironmentPlugin({
@@ -50,21 +54,17 @@ module.exports = {
     new webpack.DefinePlugin({
       TRACE_TURBOLINKS: devBuild,
     }),
-
-    // https://webpack.js.org/guides/code-splitting-libraries/#implicit-common-vendor-chunk
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor-bundle',
-      // We don't want the default vendor.js name
-      filename: 'vendor-bundle-[hash].js',
-      minChunks(module) {
-        // this assumes your vendor imports exist in the node_modules directory
-        return module.context && module.context.indexOf('node_modules') !== -1;
-      },
-    }),
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true,
     }),
+    new MiniCssExtractPlugin({
+      filename: devBuild ? '[name].css' : '[name]-[hash].css',
+      chunkFilename: devBuild ? '[id].css' : '[id]-[hash].css',
+    }),
+
+    // For chunk Optimazation courtesy of this thread
+    // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   ],
 
   module: {
@@ -105,6 +105,15 @@ module.exports = {
             jQuery: 'jquery',
           },
         },
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          devBuild ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
     ],
   },

@@ -14,6 +14,7 @@ const devBuild = process.env.NODE_ENV !== 'production';
 const nodeEnv = devBuild ? 'development' : 'production';
 
 module.exports = {
+  mode: nodeEnv,
 
   // the project dir
   context: __dirname,
