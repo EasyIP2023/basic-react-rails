@@ -13,6 +13,7 @@ foreman start -f Profile.hot
 ```
 
 **Static**
+
 Before running profile static comment out the style-loader line in client/.bootstraprc it uses mini-css-extract-plugin. See file for reason why
 
 ```
