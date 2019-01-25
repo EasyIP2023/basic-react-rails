@@ -36,7 +36,7 @@ module.exports = merge(config, {
 
   output: {
     filename: isHMR ? '[name]-[hash].js' : '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].chunk.js',
+    chunkFilename: '[name]-[chunkhash].js',
 
     publicPath: output.publicPath,
     path: output.path,
@@ -106,8 +106,7 @@ module.exports = merge(config, {
         use: {
           loader: 'imports-loader',
           options: {
-            shim: 'es5-shim/es5-shim',
-            sham: 'es5-shim/es5-sham',
+            shim: 'es7-shim/es7-shim',
           },
         },
       },

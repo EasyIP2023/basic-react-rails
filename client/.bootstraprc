@@ -9,7 +9,7 @@ bootstrapVersion: 4
 # https://github.com/webpack-contrib/mini-css-extract-plugin/issues/173#issuecomment-398144318
 # Webpack loaders, order matters
 styleLoaders:
-  - style-loader
+#  - style-loader
   - css-loader
   - postcss-loader
   - sass-loader

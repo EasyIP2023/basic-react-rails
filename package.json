@@ -1,6 +1,6 @@
 {
-  "name": "basic-react-rails",
-  "description": "Basic React Redux Rails Webpack Example",
+  "name": "default-react-rails",
+  "description": "Default React Redux Rails Webpack Example",
   "main": "server.js",
   "scripts": {
     "postinstall": "cd ./client && yarn install",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EasyIP2023/basic-react-rails.git"
+    "url": "https://github.com/EasyIP2023/default-react-rails.git"
   },
   "keywords": [
     "react",
@@ -28,7 +28,7 @@
   "author": "EasyIP2023",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EasyIP2023/basic-react-rails/issues"
+    "url": "https://github.com/EasyIP2023/default-react-rails/issues"
   },
   "devDependencies": {},
   "dependencies": {}

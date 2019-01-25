@@ -28,6 +28,7 @@ module.exports = {
     // Additionally, there's no particular need to have a fingerprint (hash) on the server bundle,
     // since it's not cached by the browsers.
     filename: 'server-bundle.js',
+    chunkFilename: '[name]-[chunkhash].js',
 
     // Leading and trailing slashes ARE necessary.
     publicPath: output.publicPath,
@@ -39,7 +40,21 @@ module.exports = {
       images: join(process.cwd(), 'app', 'assets', 'images'),
     },
   },
-
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //     cacheGroups: {
+  //       default: false,
+  //       vendors: false,
+  //       vendor: { /* Any import code from node_modules will be put here */
+  //         name: 'server-bundle', // Name for chunks
+  //         chunks: 'all', // sync + async chunks
+  //         test: /node_modules/, // import file path containing node_modules
+  //         priority: 20,
+  //       },
+  //     },
+  //   },
+  // },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

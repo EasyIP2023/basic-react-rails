@@ -24,12 +24,9 @@ module.exports = {
   context: resolve(__dirname),
   entry: {
     // This will contain the app entry points defined by
-
-    // See use of 'vendor' in the CommonsChunkPlugin inclusion below.
     'vendor-bundle': [
       '@babel/polyfill',
-      'es5-shim/es5-shim',
-      'es5-shim/es5-sham',
+      'es7-shim/es7-shim',
       'jquery',
       'turbolinks',
     ],
@@ -38,14 +35,27 @@ module.exports = {
       './app/startup/clientRegistration',
     ],
   },
-
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
       images: join(process.cwd(), 'app', 'assets', 'images'),
     },
   },
-
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //     cacheGroups: {
+  //       default: false,
+  //       vendors: false,
+  //       vendor: { /* Any import code from node_modules will be put here */
+  //         name: 'vendor-bundle', // Name for chunks
+  //         chunks: 'all', // sync + async chunks
+  //         test: /node_modules/, // import file path containing node_modules
+  //         priority: 20
+  //       },
+  //     },
+  //   },
+  // },
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
@@ -62,9 +72,6 @@ module.exports = {
       filename: devBuild ? '[name].css' : '[name]-[hash].css',
       chunkFilename: devBuild ? '[id].css' : '[id]-[hash].css',
     }),
-
-    // For chunk Optimazation courtesy of this thread
-    // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   ],
 
   module: {

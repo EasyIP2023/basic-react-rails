@@ -23,6 +23,7 @@
 
 /node_modules
 /yarn-error.log
+/client/yarn-error.log
 
 /public/assets
 .byebug_history
