@@ -1,6 +1,5 @@
 # React Redux Rails Webpack Example
 
-**I Will No longer be pushing to this repo anymore!**
 Web application that uses React on Rails + react + redux store + bootstrap v4 + Webpack v4 + ES7. It's a default react with rails web application example. I will add any new additions as need be. I only built this so that I could reference it later on when building other related web applications.
 
 ## Installation/Usage
@@ -10,12 +9,12 @@ Be sure to have yarn and nodejs installed before usage
 ```bash
 cd default-react-rails/
 bundle && yarn
-foreman start -f Profile.hot
+foreman start -f Procfile.hot
 ```
 
 **Static**
 
-Before running profile static comment out the style-loader line in [client/.bootstraprc](https://github.com/EasyIP2023/default-react-rails/blob/master/client/.bootstraprc) it uses mini-css-extract-plugin. See file for reason why
+Before running procfile static comment out the style-loader line in [client/.bootstraprc](https://github.com/EasyIP2023/default-react-rails/blob/master/client/.bootstraprc) it uses mini-css-extract-plugin. See file for reason why
 
 ```
 styleLoaders:
@@ -28,7 +27,7 @@ styleLoaders:
 ```bash
 cd default-react-rails
 bundle && yarn
-foreman start -f Profile.static
+foreman start -f Procfile.static
 ```
 
 **Important npm packages can be found in client/package.json**

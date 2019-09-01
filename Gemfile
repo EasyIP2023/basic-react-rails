@@ -20,7 +20,7 @@ gem 'mini_racer', platforms: :ruby
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'react_on_rails', '11.2.2'
+gem 'react_on_rails', '11.3.0'
 gem 'webpacker'
 
 gem 'haml-rails'
