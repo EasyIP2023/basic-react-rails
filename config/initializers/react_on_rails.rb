@@ -84,4 +84,5 @@ ReactOnRails.configure do |config|
   # For any asset matching this regex, non-digested symlink will be created
   # To disable symlinks set this parameter to nil.
   config.symlink_non_digested_assets_regex = nil
+  config.i18n_dir = nil
 end
